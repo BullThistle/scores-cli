@@ -28,6 +28,23 @@ const splitFile = input => {
   });
 };
 
+/********************** Create hash from teams and scores *********************/
+const createHash = arr => {
+  const hash = {};
+  arr.forEach(line => {
+    if (!hash[line[0]]) hash[line[0]] = 0;
+    if (!hash[line[2]]) hash[line[2]] = 0;
+    if (Number(line[1]) > Number(line[3])) {
+      hash[line[0]] += 3;
+    } else if (Number(line[1]) === Number(line[3])) {
+      hash[line[0]] += 1;
+      hash[line[2]] += 1;
+    } else if (Number(line[1]) < Number(line[3])) {
+      hash[line[2]] += 3;
+    }
+  });
+  return hash;
+};
 
 
-module.exports = { readFile, splitFile };
+module.exports = { readFile, splitFile, createHash };

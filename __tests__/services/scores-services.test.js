@@ -1,4 +1,4 @@
-const { readFile, splitFile } = require('../../services/scores-services');
+const { readFile, splitFile, createHash } = require('../../services/scores-services');
 
 /******************************* Test readFile ********************************/
 test('Reads from .txt file and returns its contents as a string', async () => {
@@ -34,4 +34,29 @@ test('Creates properly formatted 2d array from input string', () => {
   ];
 
   expect(splitFile(inputString)).toEqual(expectedArray);
+});
+
+/****************************** Test createHash *******************************/
+test('Creates hash of teams from calculated points', () => {
+  const teamsAndScores = [
+    ['Sounders', '3', 'Chelsea', '2'],
+    ['Liverpool', '11', 'Galexy', '3'],
+    ['Manchester', '3', 'D.C. United', '3'],
+    ['D.C. United', '3', 'Atlanta United', '25'],
+    ['Real Salt Lake', '1', 'Sounders', '2']
+  ];
+
+
+  const expectedHash = {
+    'Atlanta United': 3,
+    'Chelsea': 0,
+    'D.C. United': 1,
+    'Galexy': 0,
+    'Liverpool': 3,
+    'Manchester': 1,
+    'Real Salt Lake': 0,
+    'Sounders': 6
+  };
+
+  expect(createHash(teamsAndScores)).toEqual(expectedHash);
 });
