@@ -1,0 +1,8 @@
+{
+  "name": "scores",
+  "version": "1.0.0",
+  "description": "A CLI soccer game score calculator",
+  "main": "index.js",
+  "author": "Rafael Furry",
+  "license": "MIT"
+}
