@@ -63,5 +63,17 @@ const sortHash = hash => {
   return sortedHash;
 };
 
+/************************ Format hash to string output ************************/
+const formatOutput = (hash, reverse) => {
+  let result = '';
+  let count = 1;
+  for (let team in hash) {
+    result += `${count}. ${team}, ${hash[team]} pts\n`;
+    count++;
+  }
+  return result;
+};
 
-module.exports = { readFile, splitFile, createHash, sortHash };
+
+
+module.exports = { readFile, splitFile, createHash, sortHash, formatOutput };
