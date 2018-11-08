@@ -1,4 +1,11 @@
-const { readFile, splitFile, createHash, sortHash, formatOutput } = require('../../services/scores-services');
+const {
+  readFile,
+  splitFile,
+  createHash,
+  sortHash,
+  formatOutput,
+  printScores
+} = require('../../services/scores-services');
 
 /******************************* Test readFile ********************************/
 test('Reads from .txt file and returns its contents as a string', async () => {
@@ -111,5 +118,25 @@ test('Creates a correctly formatted string from a hash', () => {
     '6. Chelsea, 0 pts' + '\n' +
     '7. Galexy, 0 pts' + '\n' +
     '8. Real Salt Lake, 0 pts' + '\n';
+
   expect(formatOutput(hash)).toEqual(expectedString);
+});
+
+/****************************** Test printScores ******************************/
+test('Outputs the expected scores from a .txt file', async () => {
+  const returnedString = await printScores(
+    '__tests__/__test-inputs__/test-input.txt'
+  );
+
+  const expectedString =
+    '1. Sounders, 6 pts' + '\n' +
+    '2. Atlanta United, 3 pts' + '\n' +
+    '3. Liverpool, 3 pts' + '\n' +
+    '4. D.C. United, 1 pts' + '\n' +
+    '5. Manchester, 1 pts' + '\n' +
+    '6. Chelsea, 0 pts' + '\n' +
+    '7. Galexy, 0 pts' + '\n' +
+    '8. Real Salt Lake, 0 pts' + '\n';
+
+  expect(returnedString).toEqual(expectedString);
 });

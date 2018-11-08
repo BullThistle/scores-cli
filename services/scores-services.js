@@ -74,6 +74,24 @@ const formatOutput = (hash, reverse) => {
   return result;
 };
 
+/******************* Read file and print calculated scores ********************/
+const printScores = async (file, reverse) => {
+  try {
+    const input = await readFile(file);
+    const splitInput = splitFile(input);
+    const hash = createHash(splitInput);
+    const sortedHash = sortHash(hash);
+    return formatOutput(sortedHash, reverse);
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
 
-
-module.exports = { readFile, splitFile, createHash, sortHash, formatOutput };
+module.exports = {
+  readFile,
+  splitFile,
+  createHash,
+  sortHash,
+  formatOutput,
+  printScores
+};
