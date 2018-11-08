@@ -46,5 +46,22 @@ const createHash = arr => {
   return hash;
 };
 
+/******************* Sort hash by score then alphabetically *******************/
+const sortHash = hash => {
+  const sortedHash = {};
+  const sortedKeys = Object.keys(hash).sort((a, b) => {
+    if (hash[a] > hash[b]) return -1;
+    if (hash[a] < hash[b]) return 1;
+    if (a > b) return 1;
+    if (a < b) return -1;
+    return 0;
+  });
+  sortedKeys.forEach(team => {
+    sortedHash[team] = team;
+    sortedHash[team] = hash[team];
+  });
+  return sortedHash;
+};
 
-module.exports = { readFile, splitFile, createHash };
+
+module.exports = { readFile, splitFile, createHash, sortHash };

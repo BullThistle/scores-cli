@@ -1,4 +1,4 @@
-const { readFile, splitFile, createHash } = require('../../services/scores-services');
+const { readFile, splitFile, createHash, sortHash } = require('../../services/scores-services');
 
 /******************************* Test readFile ********************************/
 test('Reads from .txt file and returns its contents as a string', async () => {
@@ -59,4 +59,32 @@ test('Creates hash of teams from calculated points', () => {
   };
 
   expect(createHash(teamsAndScores)).toEqual(expectedHash);
+});
+
+/******************************* Test sortHash ********************************/
+test('Sorts hash by scores then alphabetically by team', () => {
+  const unsortedHash = {
+    'Atlanta United': 3,
+    'Chelsea': 0,
+    'D.C. United': 1,
+    'Galexy': 0,
+    'Liverpool': 3,
+    'Manchester': 1,
+    'Real Salt Lake': 0,
+    'Sounders': 6
+  };
+
+  // Stringify to ensure that the order is correct
+  let expectedHash = JSON.stringify({
+    'Sounders': 6,
+    'Atlanta United': 3,
+    'Liverpool': 3,
+    'D.C. United': 1,
+    'Manchester': 1,
+    'Chelsea': 0,
+    'Galexy': 0,
+    'Real Salt Lake': 0
+  });
+
+  expect(JSON.stringify(sortHash(unsortedHash))).toEqual(expectedHash);
 });
