@@ -1,3 +1,5 @@
+# Scores
+
 ## Description
 
 Scores is a command line scores calculator. It takes a .txt file with a list
@@ -85,3 +87,5 @@ _In scores directory:_
 ```bash
 jest
 ```
+
+**Author: Rafael Furry**
