@@ -66,10 +66,20 @@ const sortHash = hash => {
 /************************ Format hash to string output ************************/
 const formatOutput = (hash, reverse) => {
   let result = '';
-  let count = 1;
-  for (let team in hash) {
-    result += `${count}. ${team}, ${hash[team]} pts\n`;
-    count++;
+  if (reverse) {
+    const arr = [];
+    for (let key in hash) {
+      arr.push(key);
+    }
+    for (let count = arr.length - 1; count >= 0; count--) {
+      result += `${count + 1}. ${arr[count]}, ${hash[arr[count]]} pts\n`;
+    }
+  } else {
+    let count = 1;
+    for (let team in hash) {
+      result += `${count}. ${team}, ${hash[team]} pts\n`;
+      count++;
+    }
   }
   return result;
 };
