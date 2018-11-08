@@ -140,3 +140,12 @@ test('Outputs the expected scores from a .txt file', async () => {
 
   expect(returnedString).toEqual(expectedString);
 });
+
+/********************* Test printScores with bad input ***********************/
+test('Outputs an error if given bad input', async () => {
+  await expect(printScores('file-does-not-exist.txt')).rejects.toEqual(
+    new Error(
+      `The file you've entered either does not exist or can not be read`
+    )
+  );
+});
