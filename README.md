@@ -12,24 +12,28 @@ A loss is 0 points.
 ## Example
 **Input**
 ```bash
-Sounders 5, Chelsea 4
-Liverpool 11, Barcelona 8
-Real Salt Lake 3, Barcelona 2
-D.C. United 3, Manchester 2
-D.C. United 1, Sounders 2
-Real Salt Lake 2, Chelsea 2
-Sounders 3, Chelsea 3
+Sounders 3, Chelsea 2
+Liverpool 11, Galexy 3
+Manchester 3, D.C. United 3
+D.C. United 3, Atlanta United 25
+Real Salt Lake 1, Sounders 2
+Portland Timbers 2, Toronto FC 2
+
 ```
 
 **Output**
 ```bash
-1. Sounders, 7 pts
-2. Real Salt Lake, 4 pts
-3. D.C. United, 3 pts
-4. Liverpool, 3 pts
-5. Chelsea, 2 pts
-6. Barcelona, 0 pts
-7. Manchester, 0 pts
+1. Sounders, 6 pts
+2. Atlanta United, 3 pts
+2. Liverpool, 3 pts
+4. D.C. United, 1 pt
+4. Manchester, 1 pt
+4. Portland Timbers, 1 pt
+4. Toronto FC, 1 pt
+8. Chelsea, 0 pts
+8. Galexy, 0 pts
+8. Real Salt Lake, 0
+
 ```
 
 ## Run Without Install
