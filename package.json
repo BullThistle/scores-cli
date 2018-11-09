@@ -2,7 +2,7 @@
   "name": "scores",
   "version": "1.0.0",
   "description": "A CLI soccer game score calculator",
-  "main": "index.js",
+  "main": "scores.js",
   "author": "Rafael Furry",
   "license": "MIT",
   "devDependencies": {
@@ -12,6 +12,6 @@
     "commander": "^2.19.0"
   },
   "bin": {
-    "scores": "./index.js"
+    "scores": "./scores.js"
   }
 }

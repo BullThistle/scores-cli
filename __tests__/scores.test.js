@@ -1,4 +1,4 @@
-const { scoresCLI } = require('../index');
+const { scoresCLI } = require('../scores');
 
 const testFile = '__tests__/__test-inputs__/test-input.txt';
 process.exit = jest.fn();
