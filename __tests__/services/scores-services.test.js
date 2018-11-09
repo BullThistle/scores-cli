@@ -18,7 +18,8 @@ test('Reads from .txt file and returns its contents as a string', async () => {
     'Liverpool 11, Galexy 3' + '\n' +
     'Manchester 3, D.C. United 3' + '\n' +
     'D.C. United 3, Atlanta United 25' + '\n' +
-    'Real Salt Lake 1, Sounders 2';
+    'Real Salt Lake 1, Sounders 2' + '\n' +
+    "Portland Timbers 2, Toronto FC 2";
 
   expect(returnedString).toEqual(expectedString);
 });
@@ -30,14 +31,16 @@ test('Creates properly formatted 2d array from input string', () => {
     Liverpool 11, Galexy 3
 		Manchester 3, D.C. United 3
     D.C. United 3, Atlanta United 25
-    Real Salt Lake 1, Sounders 2`;
+    Real Salt Lake 1, Sounders 2
+    Portland Timbers 2, Toronto FC 2`;
 
   const expectedArray = [
     ['Sounders', '3', 'Chelsea', '2'],
     ['Liverpool', '11', 'Galexy', '3'],
     ['Manchester', '3', 'D.C. United', '3'],
     ['D.C. United', '3', 'Atlanta United', '25'],
-    ['Real Salt Lake', '1', 'Sounders', '2']
+    ['Real Salt Lake', '1', 'Sounders', '2'],
+    ['Portland Timbers', '2', 'Toronto FC', '2']
   ];
 
   expect(splitFile(inputString)).toEqual(expectedArray);
@@ -50,7 +53,8 @@ test('Creates hash of teams from calculated points', () => {
     ['Liverpool', '11', 'Galexy', '3'],
     ['Manchester', '3', 'D.C. United', '3'],
     ['D.C. United', '3', 'Atlanta United', '25'],
-    ['Real Salt Lake', '1', 'Sounders', '2']
+    ['Real Salt Lake', '1', 'Sounders', '2'],
+    ['Portland Timbers', '2', 'Toronto FC', '2']
   ];
 
 
@@ -61,8 +65,10 @@ test('Creates hash of teams from calculated points', () => {
     'Galexy': 0,
     'Liverpool': 3,
     'Manchester': 1,
+    'Portland Timbers': 1,
     'Real Salt Lake': 0,
-    'Sounders': 6
+    'Sounders': 6,
+    'Toronto FC': 1
   };
 
   expect(createHash(teamsAndScores)).toEqual(expectedHash);
@@ -77,8 +83,10 @@ test('Sorts hash by scores then alphabetically by team', () => {
     'Galexy': 0,
     'Liverpool': 3,
     'Manchester': 1,
+    'Portland Timbers': 1,
     'Real Salt Lake': 0,
-    'Sounders': 6
+    'Sounders': 6,
+    'Toronto FC': 1
   };
 
   // Stringify to ensure that the order is correct
@@ -88,6 +96,8 @@ test('Sorts hash by scores then alphabetically by team', () => {
     'Liverpool': 3,
     'D.C. United': 1,
     'Manchester': 1,
+    'Portland Timbers': 1,
+    'Toronto FC': 1,
     'Chelsea': 0,
     'Galexy': 0,
     'Real Salt Lake': 0
@@ -104,6 +114,8 @@ test('Creates a correctly formatted string from a hash', () => {
     'Liverpool': 3,
     'D.C. United': 1,
     'Manchester': 1,
+    'Portland Timbers': 1,
+    'Toronto FC': 1,
     'Chelsea': 0,
     'Galexy': 0,
     'Real Salt Lake': 0
@@ -112,11 +124,13 @@ test('Creates a correctly formatted string from a hash', () => {
   let expectedString =
     '1. Sounders, 6 pts' + '\n' +
     '2. Atlanta United, 3 pts' + '\n' +
-    '3. Liverpool, 3 pts' + '\n' +
-    '4. D.C. United, 1 pts' + '\n' +
-    '5. Manchester, 1 pts' + '\n' +
-    '6. Chelsea, 0 pts' + '\n' +
-    '7. Galexy, 0 pts' + '\n' +
+    '2. Liverpool, 3 pts' + '\n' +
+    '4. D.C. United, 1 pt' + '\n' +
+    '4. Manchester, 1 pt' + '\n' +
+    '4. Portland Timbers, 1 pt' + '\n' +
+    '4. Toronto FC, 1 pt' + '\n' +
+    '8. Chelsea, 0 pts' + '\n' +
+    '8. Galexy, 0 pts' + '\n' +
     '8. Real Salt Lake, 0 pts' + '\n';
 
   expect(formatOutput(hash)).toEqual(expectedString);
@@ -131,11 +145,13 @@ test('Outputs the expected scores from a .txt file', async () => {
   const expectedString =
     '1. Sounders, 6 pts' + '\n' +
     '2. Atlanta United, 3 pts' + '\n' +
-    '3. Liverpool, 3 pts' + '\n' +
-    '4. D.C. United, 1 pts' + '\n' +
-    '5. Manchester, 1 pts' + '\n' +
-    '6. Chelsea, 0 pts' + '\n' +
-    '7. Galexy, 0 pts' + '\n' +
+    '2. Liverpool, 3 pts' + '\n' +
+    '4. D.C. United, 1 pt' + '\n' +
+    '4. Manchester, 1 pt' + '\n' +
+    '4. Portland Timbers, 1 pt' + '\n' +
+    '4. Toronto FC, 1 pt' + '\n' +
+    '8. Chelsea, 0 pts' + '\n' +
+    '8. Galexy, 0 pts' + '\n' +
     '8. Real Salt Lake, 0 pts' + '\n';
 
   expect(returnedString).toEqual(expectedString);
