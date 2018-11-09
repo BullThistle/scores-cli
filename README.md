@@ -110,4 +110,14 @@ _In scores directory:_
 jest
 ```
 
-**Author: Rafael Furry**
+## Contributors
+
+| [<img alt="Rafa" src="https://avatars0.githubusercontent.com/u/13779974?s=460&v=4" width="117">](https://github.com/bullthistle) |
+|:---:|
+|[Rafa](https://github.com/bullthistle)
+
+### License
+
+Copyright (c) 2018 **Rafael Furry**
+
+*This software is licensed under the MIT license.*
