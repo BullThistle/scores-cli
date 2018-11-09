@@ -32,6 +32,28 @@ Sounders 3, Chelsea 3
 7. Manchester, 0 pts
 ```
 
+## Run Without Install
+
+_In scores directory:_
+
+Install dependencies:
+
+```bash
+yarn
+```
+
+Generate scores from file:
+
+```bash
+node scores sample-inputs/sample-input.txt
+```
+
+or
+
+```bash
+./scores.js sample-inputs/sample-input.txt
+```
+
 ## Install
 
 _In scores directory:_
