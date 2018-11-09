@@ -65,23 +65,20 @@ const sortHash = hash => {
 
 /************************ Format hash to string output ************************/
 const formatOutput = (hash, reverse) => {
-  let result = '';
-  if (reverse) {
-    const arr = [];
-    for (let key in hash) {
-      arr.push(key);
-    }
-    for (let count = arr.length - 1; count >= 0; count--) {
-      result += `${count + 1}. ${arr[count]}, ${hash[arr[count]]} pts\n`;
-    }
-  } else {
-    let count = 1;
-    for (let team in hash) {
-      result += `${count}. ${team}, ${hash[team]} pts\n`;
-      count++;
-    }
+  let arr = [];
+  let count = 1;
+  let rank = count;
+  let prev;
+  let pts;
+  for (let team in hash) {
+    pts = hash[team] === 1 ? 'pt' : 'pts';
+    if (hash[team] !== prev) rank = count;
+    arr.push(`${rank}. ${team}, ${hash[team]} ${pts}`);
+    prev = hash[team];
+    count++;
   }
-  return result;
+  if (reverse) arr = arr.reverse();
+  return arr.join('\n').concat('\n');
 };
 
 /******************* Read file and print calculated scores ********************/
